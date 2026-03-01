@@ -1,1 +1,149 @@
-/* Estilos css aqui! */
+/* === ESTILOS GLOBAIS === */
+body { 
+    font-family: sans-serif; 
+    background-color: #241b35; 
+    color: white; 
+    margin: 0; 
+}
+
+/* === BARRA DE NAVEGAÇÃO === */
+nav { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    background-color: #1a1325; 
+    padding: 15px 30px; 
+    position: relative; 
+}
+
+.logo-img {
+    height: 60px; 
+    width: auto;
+    border-radius: 50%; 
+}
+
+.titulo-loja {
+    position: absolute; 
+    left: 50%; 
+    transform: translateX(-50%); 
+    margin: 0;
+    color: #ff6b6b; 
+    font-size: 32px;
+}
+
+.user-menu { 
+    display: flex; 
+    align-items: center; 
+    gap: 20px; 
+}
+
+.cart { 
+    background-color: #382b47; 
+    padding: 8px 15px; 
+    border-radius: 20px; 
+    font-weight: bold; 
+}
+
+/* === ÁREA DO CATÁLOGO === */
+main { 
+    padding: 30px; 
+}
+
+main h1 { 
+    text-align: center; 
+    margin-bottom: 40px; 
+}
+
+/* === GRID DE PRODUTOS (Responsividade Exigida no PDF) === */
+.grid-produtos { 
+    display: grid; /* Mudamos de flex para grid! */
+    /* A mágica do Grid: cria colunas automáticas de no mínimo 250px */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+    gap: 20px; 
+}
+
+/* === ESTILO DO CARTÃO DE PRODUTO === */
+.produto-card { 
+    background-color: #382b47; 
+    padding: 20px; 
+    border-radius: 15px; 
+    text-align: center; 
+    border: 1px solid #4a3b5c;
+    /* Removemos a largura fixa de 250px para o Grid controlar o tamanho */
+}
+
+/* === ESTILO DAS IMAGENS DOS PRODUTOS === */
+.produto-img {
+    width: 100%; 
+    height: 220px; 
+    object-fit: contain; 
+    background-color: #ffffff; 
+    border-radius: 10px; 
+    margin-bottom: 15px; 
+}
+
+.produto-card h2 {
+    font-size: 22px;
+    margin: 10px 0;
+}
+
+.preco { 
+    font-size: 20px; 
+    font-weight: bold; 
+    color: #a78bfa; 
+    margin: 10px 0; 
+}
+
+.descricao { 
+    font-size: 14px; 
+    color: #b3a9c4; 
+    margin-bottom: 20px; 
+}
+
+/* === BOTÕES === */
+.botoes { 
+    display: flex; 
+    gap: 10px; 
+    justify-content: center; 
+    flex-direction: column; 
+}
+
+button { 
+    padding: 10px; 
+    border: none; 
+    border-radius: 8px; 
+    font-weight: bold; 
+    cursor: pointer; 
+    width: 100%;
+}
+
+.btn-add { background-color: #7c3aed; color: white; }
+.btn-remove { background-color: #4a3b5c; color: white; }
+button:hover { opacity: 0.9; }
+
+
+/* ========================================= */
+/* === RESPONSIVIDADE PARA CELULARES === */
+/* ========================================= */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column; /* Coloca os itens da navbar um embaixo do outro */
+        gap: 15px;
+        padding: 15px;
+    }
+    
+    .titulo-loja {
+        position: static; /* Desliga o "absolute" para não encavalar o texto */
+        transform: none;
+        font-size: 28px; /* Diminui um pouquinho a fonte */
+    }
+
+    .user-menu {
+        width: 100%;
+        justify-content: space-between; /* Espalha o "Olá" e o carrinho nas pontas */
+    }
+
+    main {
+        padding: 15px; /* Reduz as bordas laterais no celular para dar mais espaço */
+    }
+}
